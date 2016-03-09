@@ -1,4 +1,5 @@
-#1 .pitcher - Assemblies versioning
+#1 .pitcher - Assemblies versioning - Credits goes to http://www.colinsalmcorner.com/ http://www.colinsalmcorner.com/post/developing-a-custom-build-vnext-task-part-1- Added some changed on top of it
 #2 .pitcher - Initiate API call for next build
 #3 .pitcher - Advanced installer
 #4 .pitcher - Mail report
+
