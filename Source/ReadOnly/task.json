@@ -1,0 +1,47 @@
+{
+  "id": "a2416260-2530-449d-9cd8-6f2f22174099",
+  "name": "RemoveRO",
+  "friendlyName": "Remove Read Only",
+  "description": "Removes Read Only from specific directory",
+  "author": "Yotam Cohen (www.codevalue.net)",
+  "helpMarkDown": "",
+  "category": "Utility",
+  "visibility": [
+    "Build"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "1",
+    "Minor": "0",
+    "Patch": "11"
+  },
+  "minimumAgentVersion": "1.91.0",
+  "instanceNameFormat": "Removing ReadOnly from $(sourcePath)"
+  ],
+  "inputs": [
+    {
+      "name": "sourcePath",
+      "type": "filePath",
+      "label": "Source Path",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Root Directory ." 
+    },
+	{
+		"name": "debugOutput",
+		"type": "boolean",
+		"label": "Print progress",
+		"defaultValue":false,
+		"required":false,
+		"helpMarkDown": "Print every file ReadOnly Attribute was removed from."
+	}
+  ],
+  "execution": {
+    "PowerShell": {
+      "target": "$(currentDirectory)\\RemoveReadOnly.ps1",
+      "argumentFormat": "",
+      "workingDirectory": "$(currentDirectory)",
+      "platforms": [ "windows" ]
+    }
+  }
+}
