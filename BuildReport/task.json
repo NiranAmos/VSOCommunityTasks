@@ -1,0 +1,101 @@
+{
+  "id": "7575f020-def7-11e5-b4b9-3777cc2a94aa",
+  "name": "buildReport",
+  "friendlyName": "Build Report",
+  "description": "Send build report email",
+  "author": "Hen Rofe Haim (CodeValue.net)",
+  "helpMarkDown": "(www.codevalue.net)",
+  "category": "Build",
+  "visibility": [
+    "Build"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "0",
+    "Minor": "2",
+    "Patch": "0"
+  },
+  "minimumAgentVersion": "1.89.0",
+  "instanceNameFormat": "Build Report",
+  "groups": [
+    {
+      "name": "mailRecipients",
+      "displayName": "Mail Recipients",
+      "isExpanded": true
+    },
+	{
+      "name": "credential",
+      "displayName": "Credential",
+      "isExpanded": true
+    },
+	{
+      "name": "serverSettings",
+      "displayName": "Server Settings",
+      "isExpanded": true
+    }
+  ],
+  "inputs": [
+    {
+      "name": "groupUsers",
+      "type": "string",
+      "label": "Group Users",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Mails of TeamGroup users (separate by semicolon)",
+	  "groupName": "mailRecipients"
+    },
+    {
+      "name": "manager",
+      "type": "string",
+      "label": "Manager",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Mails of TeamGroup managers (separate by semicolon)" ,
+	  "groupName": "mailRecipients"
+    },
+    {
+      "name": "userName",
+      "type": "string",
+      "label": "User Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "User name for sending the mail",
+	  "groupName": "credential"
+    },
+    {
+      "name": "password",
+      "type": "string",
+      "label": "Password",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Password for sending the mail",
+	  "groupName": "credential"
+    },
+    {
+      "name": "SMTPServer",
+      "type": "string",
+      "label": "SMTP Server",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "SMTP Server for sending the mail",
+	  "groupName": "serverSettings"
+    },
+	{
+      "name": "SMTPPort",
+      "type": "string",
+      "label": "SMTP Port",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "SMTP Port for sending the mail",
+	  "groupName": "serverSettings"
+    }
+  ],
+  "execution": {
+    "PowerShell": {
+      "target": "$(currentDirectory)\\BuildReport.ps1",
+      "argumentFormat": "",
+      "workingDirectory": "$(currentDirectory)",
+      "platforms": [ "windows" ]
+    }
+  }
+}

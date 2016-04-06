@@ -1,0 +1,60 @@
+{
+  "id": "1b6f3740-dbc2-11e5-87ab-2d7eeb0f44ae",
+  "name": "Borland",
+  "friendlyName": "Borland",
+  "description": "Build borland project",
+  "author": "Niran Amos (CodeValue.net)",
+  "helpMarkDown": "Borland task to run c++ builder",
+  "category": "Build",
+  "visibility": [
+    "Build"
+  ],
+  "demands": [
+    "Borland"
+  ],
+  "version": {
+    "Major": "1",
+    "Minor": "1",
+    "Patch": "53"
+  },
+  "minimumAgentVersion": "1.81.0",
+  "instanceNameFormat": "Borland file $(borlandFilePath)",
+  "groups": [
+    {
+      "name": "advanced",
+      "displayName": "Advanced",
+      "isExpanded": false
+    }
+  ],
+  "inputs": [
+    {
+      "name": "borlandVersion",
+      "type": "pickList",
+      "label": "Borland Version",
+      "defaultValue": "Borland 5",
+      "required": true,
+      "helpMarkDown": "Borland Version 5 - 7",
+	  "options": {
+	            "Borland5": "Borland 5",
+                "Borland6": "Borland 6",
+                "Borland7": "Borland 7"				
+            }
+    },
+    {
+      "name": "borlandFilePath",
+      "type": "filePath",
+      "label": "Borland File",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Borland file to build."
+    }
+  ],
+  "execution": {
+    "PowerShell": {
+      "target": "$(currentDirectory)\\ExecuteBorland.ps1",
+      "argumentFormat": "",
+      "workingDirectory": "$(currentDirectory)",
+      "platforms": [ "windows" ]
+    }
+  }
+}

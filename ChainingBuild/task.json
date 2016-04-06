@@ -1,0 +1,63 @@
+{
+  "id": "7aeb9be0-e60e-11e5-902c-1ffa8f7a10ac",
+  "name": "ChainingBuild",
+  "friendlyName": "Chaining Build",
+  "description": "Chain Builds",
+  "author": "Hen Rofe Haim (CodeValue.net)",
+  "helpMarkDown": "(www.codevalue.net)",
+  "category": "Build",
+  "visibility": [
+    "Build"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "0",
+    "Minor": "1",
+    "Patch": "0"
+  },
+  "minimumAgentVersion": "1.83.0",
+  "instanceNameFormat": "Chaining Build",
+    "groups": [
+	{
+      "name": "credential",
+      "displayName": "Credential",
+      "isExpanded": true
+    }
+	],
+  "inputs": [
+      {
+      "name": "buildName",
+      "type": "string",
+      "label": "Next Build Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "The name of the next build"
+    },
+    {
+      "name": "userName",
+      "type": "string",
+      "label": "User Name",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "User name for queue the build",
+	  "groupName": "credential"
+    },
+    {
+      "name": "password",
+      "type": "string",
+      "label": "Password",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Password for queue the build",
+	  "groupName": "credential"
+    }
+  ],
+  "execution": {
+    "PowerShell": {
+      "target": "$(currentDirectory)\\ChainingBuild.ps1",
+      "argumentFormat": "",
+      "workingDirectory": "$(currentDirectory)",
+	  "platforms": [ "windows" ]
+    }
+  }
+}

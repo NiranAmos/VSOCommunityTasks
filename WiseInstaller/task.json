@@ -1,0 +1,46 @@
+{
+  "id": "2cd11ba0-f0fa-11e5-853e-1b37f011e463",
+  "name": "WiseInstaller",
+  "friendlyName": "Wise Installation System",
+  "description": "Execute Wise installer files",
+  "author": "Niran Amos (www.codevalue.net)",
+  "helpMarkDown": "Wise Installation System task",
+  "category": "Build",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "0",
+    "Minor": "0",
+    "Patch": "1"
+  },
+  "minimumAgentVersion": "1.83.0",
+  "instanceNameFormat": "Wise Installer $(message)",
+  "inputs": [
+    {
+      "name": "wiseFilePath",
+      "type": "filePath",
+      "label": "Wise File",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Wise file to execute."
+    },
+	{
+      "name": "variablesListPath",
+      "type": "filePath",
+      "label": "Variables File",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Text file of all variables"
+    }
+  ],
+  "execution": {
+    "PowerShell": {
+      "target": "$(currentDirectory)\\Wise.ps1",
+      "argumentFormat": "",
+      "workingDirectory": "$(currentDirectory)"
+    }
+  }
+}
